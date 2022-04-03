@@ -1,0 +1,8 @@
+DATE1 (\d\d\d\d)-%{MONTHNUM}-%{MONTHDAY}
+TIMESTAMP %{DATE1:year} %{TIME:time}
+MESSAGE_TYPE (WARNING|ERROR|INFO)
+HTTP_METHOD (GET|POST|PUT)
+ENDPOINT (/endpoint)(\d)
+LOCATION (us-east|us-east2|us-west|us-west2|can1|aus|london|beijing|mumbai|qatar|osaka|berlin|paris|rio|st-petersberg|seoul|bangalore|sgp)
+MICROSERVICE (user-interface|application-backend|service1|service2|background-service)
+STATUS_CODE (20\d|30\d|40\d|50\d)

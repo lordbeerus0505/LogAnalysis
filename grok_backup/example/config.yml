@@ -1,0 +1,27 @@
+global:
+  config_version: 3
+input:
+  type: file
+  path: D:\Storage\Purdue\Spring22\CloudComputing\Project\log_server\server.log
+  readall: true # Read from the beginning of the file? False means we start at the end of the file and read only new lines.
+imports:
+- type: grok_patterns
+  dir: ./patterns
+grok_patterns: 
+- 'EXIM_MESSAGE [a-zA-Z ]*'
+metrics:
+- type: counter
+  name: requests_total
+  help: Total number of requests made.
+  match: '%{TIMESTAMP:timestamp} - %{MESSAGE_TYPE:mssg_type} - "%{HTTP_METHOD:http_method} %{ENDPOINT:endpoint} (HTTP/1.1)" - "%{LOCATION:location}" - "%{MICROSERVICE:microservice}" - %{STATUS_CODE:status}'
+  labels:
+    timestamp: '{{.timestamp}}'
+    mssg_type: '{{.mssg_type}}'
+    http_method: '{{.http_method}}'
+    endpoint: '{{.endpoint}}'
+    location: '{{.location}}'
+    microservice: '{{.microservice}}'
+    status: '{{.status}}'
+server:
+  protocol: http
+  port: 9144
