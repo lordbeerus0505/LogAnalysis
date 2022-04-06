@@ -1,0 +1,1218 @@
+{
+    "annotations": {
+      "list": [
+        {
+          "builtIn": 1,
+          "datasource": "-- Grafana --",
+          "enable": true,
+          "hide": true,
+          "iconColor": "rgba(0, 211, 255, 1)",
+          "name": "Annotations & Alerts",
+          "target": {
+            "limit": 100,
+            "matchAny": false,
+            "tags": [],
+            "type": "dashboard"
+          },
+          "type": "dashboard"
+        }
+      ]
+    },
+    "editable": true,
+    "fiscalYearStartMonth": 0,
+    "graphTooltip": 0,
+    "id": 3,
+    "iteration": 1649201581447,
+    "links": [],
+    "liveNow": false,
+    "panels": [
+      {
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "palette-classic"
+            },
+            "custom": {
+              "axisLabel": "",
+              "axisPlacement": "auto",
+              "barAlignment": 0,
+              "drawStyle": "line",
+              "fillOpacity": 0,
+              "gradientMode": "none",
+              "hideFrom": {
+                "legend": false,
+                "tooltip": false,
+                "viz": false
+              },
+              "lineInterpolation": "linear",
+              "lineWidth": 1,
+              "pointSize": 5,
+              "scaleDistribution": {
+                "type": "linear"
+              },
+              "showPoints": "auto",
+              "spanNulls": false,
+              "stacking": {
+                "group": "A",
+                "mode": "none"
+              },
+              "thresholdsStyle": {
+                "mode": "off"
+              }
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            }
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 8,
+          "w": 8,
+          "x": 0,
+          "y": 0
+        },
+        "id": 14,
+        "options": {
+          "legend": {
+            "calcs": [],
+            "displayMode": "list",
+            "placement": "bottom"
+          },
+          "tooltip": {
+            "mode": "single",
+            "sort": "none"
+          }
+        },
+        "targets": [
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "2GL8wlynz"
+            },
+            "exemplar": true,
+            "expr": "sum(requests_total{timestamp=~\"$year-$month-$endday.*\", http_method=~\"$method\"})-sum(requests_total{timestamp=~\"$year-$month-$endday.*\", http_method=~\"$method\"})",
+            "interval": "",
+            "legendFormat": "$year-$month-$startday - $year-$month-$endday",
+            "refId": "A"
+          }
+        ],
+        "title": "Total Requests within Interval",
+        "type": "timeseries"
+      },
+      {
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "palette-classic"
+            },
+            "custom": {
+              "axisLabel": "",
+              "axisPlacement": "auto",
+              "barAlignment": 0,
+              "drawStyle": "line",
+              "fillOpacity": 0,
+              "gradientMode": "none",
+              "hideFrom": {
+                "legend": false,
+                "tooltip": false,
+                "viz": false
+              },
+              "lineInterpolation": "linear",
+              "lineWidth": 1,
+              "pointSize": 5,
+              "scaleDistribution": {
+                "type": "linear"
+              },
+              "showPoints": "auto",
+              "spanNulls": false,
+              "stacking": {
+                "group": "A",
+                "mode": "none"
+              },
+              "thresholdsStyle": {
+                "mode": "off"
+              }
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            }
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 8,
+          "w": 8,
+          "x": 8,
+          "y": 0
+        },
+        "id": 4,
+        "options": {
+          "legend": {
+            "calcs": [],
+            "displayMode": "list",
+            "placement": "bottom"
+          },
+          "tooltip": {
+            "mode": "single",
+            "sort": "none"
+          }
+        },
+        "targets": [
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "2GL8wlynz"
+            },
+            "exemplar": true,
+            "expr": "count by (location) (requests_total)",
+            "interval": "",
+            "legendFormat": "{{location}}",
+            "refId": "A"
+          }
+        ],
+        "title": "Region Distribution",
+        "type": "timeseries"
+      },
+      {
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "palette-classic"
+            },
+            "custom": {
+              "axisLabel": "",
+              "axisPlacement": "auto",
+              "barAlignment": 0,
+              "drawStyle": "line",
+              "fillOpacity": 0,
+              "gradientMode": "none",
+              "hideFrom": {
+                "legend": false,
+                "tooltip": false,
+                "viz": false
+              },
+              "lineInterpolation": "linear",
+              "lineWidth": 1,
+              "pointSize": 5,
+              "scaleDistribution": {
+                "type": "linear"
+              },
+              "showPoints": "auto",
+              "spanNulls": false,
+              "stacking": {
+                "group": "A",
+                "mode": "none"
+              },
+              "thresholdsStyle": {
+                "mode": "off"
+              }
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            }
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 8,
+          "w": 8,
+          "x": 16,
+          "y": 0
+        },
+        "id": 12,
+        "options": {
+          "legend": {
+            "calcs": [],
+            "displayMode": "list",
+            "placement": "bottom"
+          },
+          "tooltip": {
+            "mode": "single",
+            "sort": "none"
+          }
+        },
+        "targets": [
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "2GL8wlynz"
+            },
+            "exemplar": true,
+            "expr": "count by (microservice) (requests_total)",
+            "interval": "",
+            "legendFormat": "{{microservice}}",
+            "refId": "A"
+          }
+        ],
+        "title": "Microservice Usage Distribution",
+        "type": "timeseries"
+      },
+      {
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "palette-classic"
+            },
+            "custom": {
+              "axisLabel": "",
+              "axisPlacement": "auto",
+              "barAlignment": 0,
+              "drawStyle": "line",
+              "fillOpacity": 0,
+              "gradientMode": "none",
+              "hideFrom": {
+                "legend": false,
+                "tooltip": false,
+                "viz": false
+              },
+              "lineInterpolation": "linear",
+              "lineWidth": 1,
+              "pointSize": 5,
+              "scaleDistribution": {
+                "type": "linear"
+              },
+              "showPoints": "auto",
+              "spanNulls": false,
+              "stacking": {
+                "group": "A",
+                "mode": "none"
+              },
+              "thresholdsStyle": {
+                "mode": "off"
+              }
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            }
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 8,
+          "w": 6,
+          "x": 0,
+          "y": 8
+        },
+        "id": 10,
+        "options": {
+          "legend": {
+            "calcs": [],
+            "displayMode": "list",
+            "placement": "bottom"
+          },
+          "tooltip": {
+            "mode": "single",
+            "sort": "none"
+          }
+        },
+        "targets": [
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "2GL8wlynz"
+            },
+            "exemplar": true,
+            "expr": "count by (location) (requests_total{status=~\"4.*\"})",
+            "interval": "",
+            "legendFormat": "{{location}}",
+            "refId": "A"
+          }
+        ],
+        "title": "Client Side Error Distribution by Regions",
+        "type": "timeseries"
+      },
+      {
+        "alert": {
+          "alertRuleTags": {},
+          "conditions": [
+            {
+              "evaluator": {
+                "params": [
+                  0
+                ],
+                "type": "gt"
+              },
+              "operator": {
+                "type": "and"
+              },
+              "query": {
+                "params": [
+                  "B",
+                  "1m",
+                  "now"
+                ]
+              },
+              "reducer": {
+                "params": [],
+                "type": "min"
+              },
+              "type": "query"
+            }
+          ],
+          "executionErrorState": "alerting",
+          "for": "1s",
+          "frequency": "1m",
+          "handler": 1,
+          "message": "New Server side error",
+          "name": "Server Side Errors Distribution alert",
+          "noDataState": "no_data",
+          "notifications": [
+            {
+              "uid": "AScLUR8nk"
+            }
+          ]
+        },
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "palette-classic"
+            },
+            "custom": {
+              "axisLabel": "",
+              "axisPlacement": "auto",
+              "barAlignment": 0,
+              "drawStyle": "line",
+              "fillOpacity": 0,
+              "gradientMode": "none",
+              "hideFrom": {
+                "legend": false,
+                "tooltip": false,
+                "viz": false
+              },
+              "lineInterpolation": "linear",
+              "lineWidth": 1,
+              "pointSize": 5,
+              "scaleDistribution": {
+                "type": "linear"
+              },
+              "showPoints": "auto",
+              "spanNulls": false,
+              "stacking": {
+                "group": "A",
+                "mode": "none"
+              },
+              "thresholdsStyle": {
+                "mode": "off"
+              }
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            }
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 8,
+          "w": 6,
+          "x": 6,
+          "y": 8
+        },
+        "id": 8,
+        "options": {
+          "legend": {
+            "calcs": [],
+            "displayMode": "list",
+            "placement": "bottom"
+          },
+          "tooltip": {
+            "mode": "single",
+            "sort": "none"
+          }
+        },
+        "targets": [
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "2GL8wlynz"
+            },
+            "exemplar": true,
+            "expr": "count by (location) (requests_total{status=~\"5.*\"})",
+            "hide": true,
+            "interval": "",
+            "legendFormat": "{{location}}",
+            "refId": "A"
+          },
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "2GL8wlynz"
+            },
+            "exemplar": true,
+            "expr": "(rate(error_requests[5m]))",
+            "hide": false,
+            "interval": "",
+            "legendFormat": "{{status}}",
+            "refId": "B"
+          }
+        ],
+        "thresholds": [
+          {
+            "colorMode": "critical",
+            "op": "gt",
+            "value": 0,
+            "visible": true
+          }
+        ],
+        "title": "Server Side Errors Distribution",
+        "type": "timeseries"
+      },
+      {
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "palette-classic"
+            },
+            "custom": {
+              "axisLabel": "",
+              "axisPlacement": "auto",
+              "barAlignment": 0,
+              "drawStyle": "line",
+              "fillOpacity": 0,
+              "gradientMode": "none",
+              "hideFrom": {
+                "legend": false,
+                "tooltip": false,
+                "viz": false
+              },
+              "lineInterpolation": "linear",
+              "lineWidth": 1,
+              "pointSize": 5,
+              "scaleDistribution": {
+                "type": "linear"
+              },
+              "showPoints": "auto",
+              "spanNulls": false,
+              "stacking": {
+                "group": "A",
+                "mode": "none"
+              },
+              "thresholdsStyle": {
+                "mode": "off"
+              }
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            }
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 8,
+          "w": 6,
+          "x": 12,
+          "y": 8
+        },
+        "id": 2,
+        "options": {
+          "legend": {
+            "calcs": [],
+            "displayMode": "list",
+            "placement": "bottom"
+          },
+          "tooltip": {
+            "mode": "single",
+            "sort": "none"
+          }
+        },
+        "targets": [
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "2GL8wlynz"
+            },
+            "exemplar": true,
+            "expr": "sum(requests_total{http_method=\"POST\"})",
+            "interval": "",
+            "legendFormat": "POST requests",
+            "refId": "A"
+          },
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "2GL8wlynz"
+            },
+            "exemplar": true,
+            "expr": "sum(requests_total{http_method=\"GET\"})",
+            "hide": false,
+            "interval": "",
+            "legendFormat": "GET requests",
+            "refId": "B"
+          },
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "2GL8wlynz"
+            },
+            "exemplar": true,
+            "expr": "sum(requests_total{http_method=\"PUT\"})",
+            "hide": false,
+            "interval": "",
+            "legendFormat": "PUT requests",
+            "refId": "C"
+          }
+        ],
+        "title": "HTTP Method Distribution",
+        "type": "timeseries"
+      },
+      {
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "palette-classic"
+            },
+            "custom": {
+              "axisLabel": "",
+              "axisPlacement": "auto",
+              "barAlignment": 0,
+              "drawStyle": "line",
+              "fillOpacity": 0,
+              "gradientMode": "none",
+              "hideFrom": {
+                "legend": false,
+                "tooltip": false,
+                "viz": false
+              },
+              "lineInterpolation": "linear",
+              "lineWidth": 1,
+              "pointSize": 5,
+              "scaleDistribution": {
+                "type": "linear"
+              },
+              "showPoints": "auto",
+              "spanNulls": false,
+              "stacking": {
+                "group": "A",
+                "mode": "none"
+              },
+              "thresholdsStyle": {
+                "mode": "off"
+              }
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            }
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 8,
+          "w": 6,
+          "x": 18,
+          "y": 8
+        },
+        "id": 6,
+        "options": {
+          "legend": {
+            "calcs": [],
+            "displayMode": "list",
+            "placement": "bottom"
+          },
+          "tooltip": {
+            "mode": "single",
+            "sort": "none"
+          }
+        },
+        "targets": [
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "2GL8wlynz"
+            },
+            "exemplar": true,
+            "expr": "count by (mssg_type) (requests_total)",
+            "interval": "",
+            "legendFormat": "{{mssg_type}}",
+            "refId": "A"
+          }
+        ],
+        "title": "Message Type Distribution",
+        "type": "timeseries"
+      }
+    ],
+    "refresh": false,
+    "schemaVersion": 35,
+    "style": "dark",
+    "tags": [],
+    "templating": {
+      "list": [
+        {
+          "current": {
+            "selected": true,
+            "text": "2022",
+            "value": "2022"
+          },
+          "hide": 0,
+          "includeAll": false,
+          "label": "Year",
+          "multi": false,
+          "name": "year",
+          "options": [
+            {
+              "selected": false,
+              "text": "2021",
+              "value": "2021"
+            },
+            {
+              "selected": true,
+              "text": "2022",
+              "value": "2022"
+            },
+            {
+              "selected": false,
+              "text": "2023",
+              "value": "2023"
+            }
+          ],
+          "query": "2021, 2022,2023",
+          "queryValue": "",
+          "skipUrlSync": false,
+          "type": "custom"
+        },
+        {
+          "current": {
+            "selected": true,
+            "text": "04",
+            "value": "04"
+          },
+          "hide": 0,
+          "includeAll": false,
+          "label": "Month",
+          "multi": false,
+          "name": "month",
+          "options": [
+            {
+              "selected": false,
+              "text": "01",
+              "value": "01"
+            },
+            {
+              "selected": false,
+              "text": "02",
+              "value": "02"
+            },
+            {
+              "selected": false,
+              "text": "03",
+              "value": "03"
+            },
+            {
+              "selected": true,
+              "text": "04",
+              "value": "04"
+            },
+            {
+              "selected": false,
+              "text": "05",
+              "value": "05"
+            },
+            {
+              "selected": false,
+              "text": "06",
+              "value": "06"
+            },
+            {
+              "selected": false,
+              "text": "07",
+              "value": "07"
+            },
+            {
+              "selected": false,
+              "text": "08",
+              "value": "08"
+            },
+            {
+              "selected": false,
+              "text": "09",
+              "value": "09"
+            },
+            {
+              "selected": false,
+              "text": "10",
+              "value": "10"
+            },
+            {
+              "selected": false,
+              "text": "11",
+              "value": "11"
+            },
+            {
+              "selected": false,
+              "text": "12",
+              "value": "12"
+            }
+          ],
+          "query": "01,02,03,04,05,06,07,08,09,10,11,12",
+          "queryValue": "",
+          "skipUrlSync": false,
+          "type": "custom"
+        },
+        {
+          "current": {
+            "selected": false,
+            "text": "05",
+            "value": "05"
+          },
+          "hide": 0,
+          "includeAll": false,
+          "label": "Start Day",
+          "multi": false,
+          "name": "startday",
+          "options": [
+            {
+              "selected": false,
+              "text": "01",
+              "value": "01"
+            },
+            {
+              "selected": false,
+              "text": "02",
+              "value": "02"
+            },
+            {
+              "selected": false,
+              "text": "03",
+              "value": "03"
+            },
+            {
+              "selected": false,
+              "text": "04",
+              "value": "04"
+            },
+            {
+              "selected": true,
+              "text": "05",
+              "value": "05"
+            },
+            {
+              "selected": false,
+              "text": "06",
+              "value": "06"
+            },
+            {
+              "selected": false,
+              "text": "07",
+              "value": "07"
+            },
+            {
+              "selected": false,
+              "text": "08",
+              "value": "08"
+            },
+            {
+              "selected": false,
+              "text": "09",
+              "value": "09"
+            },
+            {
+              "selected": false,
+              "text": "10",
+              "value": "10"
+            },
+            {
+              "selected": false,
+              "text": "11",
+              "value": "11"
+            },
+            {
+              "selected": false,
+              "text": "12",
+              "value": "12"
+            },
+            {
+              "selected": false,
+              "text": "13",
+              "value": "13"
+            },
+            {
+              "selected": false,
+              "text": "14",
+              "value": "14"
+            },
+            {
+              "selected": false,
+              "text": "15",
+              "value": "15"
+            },
+            {
+              "selected": false,
+              "text": "16",
+              "value": "16"
+            },
+            {
+              "selected": false,
+              "text": "17",
+              "value": "17"
+            },
+            {
+              "selected": false,
+              "text": "18",
+              "value": "18"
+            },
+            {
+              "selected": false,
+              "text": "19",
+              "value": "19"
+            },
+            {
+              "selected": false,
+              "text": "20",
+              "value": "20"
+            },
+            {
+              "selected": false,
+              "text": "21",
+              "value": "21"
+            },
+            {
+              "selected": false,
+              "text": "22",
+              "value": "22"
+            },
+            {
+              "selected": false,
+              "text": "23",
+              "value": "23"
+            },
+            {
+              "selected": false,
+              "text": "24",
+              "value": "24"
+            },
+            {
+              "selected": false,
+              "text": "25",
+              "value": "25"
+            },
+            {
+              "selected": false,
+              "text": "26",
+              "value": "26"
+            },
+            {
+              "selected": false,
+              "text": "27",
+              "value": "27"
+            },
+            {
+              "selected": false,
+              "text": "28",
+              "value": "28"
+            },
+            {
+              "selected": false,
+              "text": "29",
+              "value": "29"
+            },
+            {
+              "selected": false,
+              "text": "30",
+              "value": "30"
+            },
+            {
+              "selected": false,
+              "text": "31",
+              "value": "31"
+            }
+          ],
+          "query": "01,02,03,04,05,06,07,08,09,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31",
+          "queryValue": "",
+          "skipUrlSync": false,
+          "type": "custom"
+        },
+        {
+          "current": {
+            "selected": true,
+            "text": "05",
+            "value": "05"
+          },
+          "hide": 0,
+          "includeAll": false,
+          "label": "End Day",
+          "multi": false,
+          "name": "endday",
+          "options": [
+            {
+              "selected": false,
+              "text": "01",
+              "value": "01"
+            },
+            {
+              "selected": false,
+              "text": "02",
+              "value": "02"
+            },
+            {
+              "selected": false,
+              "text": "03",
+              "value": "03"
+            },
+            {
+              "selected": false,
+              "text": "04",
+              "value": "04"
+            },
+            {
+              "selected": true,
+              "text": "05",
+              "value": "05"
+            },
+            {
+              "selected": false,
+              "text": "06",
+              "value": "06"
+            },
+            {
+              "selected": false,
+              "text": "07",
+              "value": "07"
+            },
+            {
+              "selected": false,
+              "text": "08",
+              "value": "08"
+            },
+            {
+              "selected": false,
+              "text": "09",
+              "value": "09"
+            },
+            {
+              "selected": false,
+              "text": "10",
+              "value": "10"
+            },
+            {
+              "selected": false,
+              "text": "11",
+              "value": "11"
+            },
+            {
+              "selected": false,
+              "text": "12",
+              "value": "12"
+            },
+            {
+              "selected": false,
+              "text": "13",
+              "value": "13"
+            },
+            {
+              "selected": false,
+              "text": "14",
+              "value": "14"
+            },
+            {
+              "selected": false,
+              "text": "15",
+              "value": "15"
+            },
+            {
+              "selected": false,
+              "text": "16",
+              "value": "16"
+            },
+            {
+              "selected": false,
+              "text": "17",
+              "value": "17"
+            },
+            {
+              "selected": false,
+              "text": "18",
+              "value": "18"
+            },
+            {
+              "selected": false,
+              "text": "19",
+              "value": "19"
+            },
+            {
+              "selected": false,
+              "text": "20",
+              "value": "20"
+            },
+            {
+              "selected": false,
+              "text": "21",
+              "value": "21"
+            },
+            {
+              "selected": false,
+              "text": "22",
+              "value": "22"
+            },
+            {
+              "selected": false,
+              "text": "23",
+              "value": "23"
+            },
+            {
+              "selected": false,
+              "text": "24",
+              "value": "24"
+            },
+            {
+              "selected": false,
+              "text": "25",
+              "value": "25"
+            },
+            {
+              "selected": false,
+              "text": "26",
+              "value": "26"
+            },
+            {
+              "selected": false,
+              "text": "27",
+              "value": "27"
+            },
+            {
+              "selected": false,
+              "text": "28",
+              "value": "28"
+            },
+            {
+              "selected": false,
+              "text": "29",
+              "value": "29"
+            },
+            {
+              "selected": false,
+              "text": "30",
+              "value": "30"
+            },
+            {
+              "selected": false,
+              "text": "31",
+              "value": "31"
+            }
+          ],
+          "query": "01,02,03,04,05,06,07,08,09,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31",
+          "queryValue": "",
+          "skipUrlSync": false,
+          "type": "custom"
+        },
+        {
+          "current": {
+            "selected": true,
+            "text": "PUT",
+            "value": "PUT"
+          },
+          "hide": 0,
+          "includeAll": false,
+          "label": "HTTP Method",
+          "multi": false,
+          "name": "method",
+          "options": [
+            {
+              "selected": false,
+              "text": "GET",
+              "value": "GET"
+            },
+            {
+              "selected": true,
+              "text": "PUT",
+              "value": "PUT"
+            },
+            {
+              "selected": false,
+              "text": "POST",
+              "value": "POST"
+            }
+          ],
+          "query": "GET, PUT, POST",
+          "queryValue": "",
+          "skipUrlSync": false,
+          "type": "custom"
+        }
+      ]
+    },
+    "time": {
+      "from": "now-30m",
+      "to": "now"
+    },
+    "timepicker": {},
+    "timezone": "",
+    "title": "Log Dashboards",
+    "uid": "jP6eng8nk",
+    "version": 18,
+    "weekStart": ""
+  }

@@ -22,6 +22,12 @@ metrics:
     location: '{{.location}}'
     microservice: '{{.microservice}}'
     status: '{{.status}}'
+- type: counter
+  name: error_requests
+  help: Number of requests of 5xx and 4xx http methods
+  match: '%{STATUS_CODE_ERR:status}'
+  labels:
+    status: '{{.status}}'
 server:
   protocol: http
   port: 9144
